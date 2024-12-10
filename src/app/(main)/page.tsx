@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
-      {isCameraAllowed ? (
+      {isCameraAllowed && data=="Not Found" ? (
         <>
           <BarcodeScannerComponent
             width={500}
