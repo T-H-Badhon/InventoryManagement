@@ -1,25 +1,34 @@
 "use client";
+import KanbanBoard from "@/components/KanbanBoard";
+import { useAddCategoryMutation } from "@/redux/api/category/categoryApi";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const Categorypage = () => {
   const [categoryName, setCategoryName] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const [addCategory] = useAddCategoryMutation();
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!categoryName.trim()) {
-      setMessage("Category name cannot be empty.");
+      toast.warning("Category name cannot be empty.");
       return;
     }
 
-    // Handle adding category (e.g., API call or state update)
-    console.log("Category Added:", categoryName);
-    setMessage(`Category "${categoryName}" added successfully!`);
+    const res = await addCategory({ name: categoryName });
 
-    // Reset form
-    setCategoryName("");
+    if (res?.data?.success) {
+      toast.success("Category added successfully");
+      setCategoryName("");
+    } else {
+      toast.error(
+        (res as any)?.error?.errorMessage || (res as any)?.error?.status
+      );
+    }
   };
+
   return (
     <div className="pt-20 pl-[40px] shadow-md">
       <div className=" flex items-center justify-center ">
@@ -56,20 +65,9 @@ const Categorypage = () => {
           </form>
         </div>
       </div>
-      <div className="p-5">
-        <h3>Categories</h3>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <th>#</th>
-                <th>Category</th>
-                <th>Total Products</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+
+      {/* // */}
+      <KanbanBoard />
     </div>
   );
 };

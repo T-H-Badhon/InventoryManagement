@@ -8,25 +8,29 @@ const productApi = baseApi.injectEndpoints({
         method: "POST",
         body: payload,
       }),
+      invalidatesTags: ["category", "product"],
     }),
     updateProduct: builder.mutation({
       query: (arg) => ({
-        url: "/product/updata/" + arg?.id,
-        method: "patch",
+        url: "/product/update/" + arg?.id,
+        method: "put",
         body: arg.data,
       }),
+      invalidatesTags: ["category", "product"],
     }),
     deleteProduct: builder.mutation({
       query: (id) => ({
         url: "/product/delete/" + id,
         method: "delete",
       }),
+      invalidatesTags: ["category", "product"],
     }),
     getAllProduct: builder.query({
       query: () => ({
         url: "/product/",
         method: "get",
       }),
+      providesTags: ["product"],
     }),
   }),
 });
@@ -35,5 +39,5 @@ export const {
   useAddProductMutation,
   useUpdateProductMutation,
   useDeleteProductMutation,
-  useGetAllProductQuery
+  useGetAllProductQuery,
 } = productApi;
