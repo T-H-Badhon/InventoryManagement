@@ -4,13 +4,11 @@ import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
 function BarcodeScanner() {
   const [data, setData] = React.useState("Not Found");
-  const [loading, setLoading] = useState(false);
   const [isCameraAllowed, setIsCameraAllowed] = React.useState(true);
   const [scan, setScan] = useState(false);
   const [result, setResult]= useState<{materia:string, barcode:string,description:string} | any>({})
 
   useEffect(() => {
-    setLoading(true)
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:4000/api/v1/scanner/"+data); // Replace with your API endpoint
@@ -22,8 +20,6 @@ function BarcodeScanner() {
         setScan(false)
       } catch (err) {
        console.log(err)
-      } finally {
-        // setLoading(false);
       }
     };
 
@@ -34,7 +30,7 @@ function BarcodeScanner() {
     <div className="text-center mt-5">
       {isCameraAllowed && scan ? (
         <>
-          <div className="w-[290px] sm:w-[500px] md:w-[500px] h-[230px] sm:h-[400px] mx-auto">
+          <div className="w-[290px] sm:w-[500px] md:w-[500px] h-[230px] sm:h-[400px] overflow-hidden mx-auto">
             <BarcodeScannerComponent
               onUpdate={(err, result) => {
                 if (result)
