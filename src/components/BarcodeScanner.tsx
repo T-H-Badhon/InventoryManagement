@@ -1,17 +1,32 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
 function BarcodeScanner() {
   const [data, setData] = React.useState("Not Found");
+  const [loading, setLoading] = useState(false);
   const [isCameraAllowed, setIsCameraAllowed] = React.useState(true);
   const [scan, setScan] = useState(false);
+  const [result, setResult]= useState<{materia:string, barcode:string,description:string} | any>({})
 
-  useMemo(()=>{
-    setScan(false)
-    console.log(data)
-    setData("Not Found")
+  useEffect(() => {
+    setLoading(true)
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/api/v1/scanner/"+'8941102311675'); // Replace with your API endpoint
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const result = await response.json();
+        setResult(result?.product)
+      } catch (err) {
+       console.log(err)
+      } finally {
+        // setLoading(false);
+      }
+    };
 
+    fetchData();
   },[data,setData,setScan]);
 
   return (
@@ -34,7 +49,11 @@ function BarcodeScanner() {
           </div>
         </>
       ) : (
-        <div className="w-[290px] sm:w-[500px] md:w-[500px] h-[230px] sm:h-[400px] border border-red-500 mx-auto"></div>
+        <div className="w-[290px] sm:w-[500px] md:w-[500px] h-[230px] sm:h-[400px] border border-red-500 mx-auto place-content-center">
+        <h1>{result?.material}</h1>
+        <h1>{result?.barcode}</h1>
+        <h1>{result?.description}</h1>
+        </div>
       )}
       <button
         onClick={() => {
