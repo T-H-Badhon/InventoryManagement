@@ -19,6 +19,7 @@ function BarcodeScanner() {
         }
         const result = await response.json();
         setResult(result?.product)
+        setScan(false)
       } catch (err) {
        console.log(err)
       } finally {
