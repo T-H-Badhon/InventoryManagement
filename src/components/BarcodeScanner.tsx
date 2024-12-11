@@ -13,7 +13,7 @@ function BarcodeScanner() {
     setLoading(true)
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/v1/scanner/"+'8941102311675'); // Replace with your API endpoint
+        const response = await fetch("http://localhost:4000/api/v1/scanner/"+data); // Replace with your API endpoint
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
