@@ -1,11 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
 function BarcodeScanner() {
   const [data, setData] = React.useState("Not Found");
   const [isCameraAllowed, setIsCameraAllowed] = React.useState(true);
   const [scan, setScan] = useState(false);
+
+  useMemo(()=>{
+    setScan(false)
+    console.log(data)
+    setData("Not Found")
+
+  },[data,setData,setScan]);
 
   return (
     <div className="text-center mt-5">

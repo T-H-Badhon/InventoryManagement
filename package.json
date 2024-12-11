@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "@types/punycode": "^2.1.4",
     "next": "14.2.3",
     "punycode": "^2.3.1",
