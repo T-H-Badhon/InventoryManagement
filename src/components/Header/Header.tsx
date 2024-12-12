@@ -30,7 +30,7 @@ const Header = () => {
             <p>Scan</p>
           </Link>
           <Link
-            className="py-3 px-5 bg-blue-950 rounded-lg text-white font-bold md:mr-5"
+            className="py-3 px-5 bg-blue-950 rounded-lg text-white font-bold  mr-2 md:mr-5"
             href={"/logout"}
           >
             {" "}

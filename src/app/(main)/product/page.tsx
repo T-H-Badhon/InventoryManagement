@@ -62,8 +62,8 @@ const Productpage = () => {
         <div className="p-5">
           <h3 className="text-lg font-semibold mb-3">All Products</h3>
 
-          <div className="flex items-center gap-4">
-            <div className="mb-3 flex-1 flex items-center  gap-2">
+          <div className="md:flex items-center gap-4">
+            <div className="mb-3 flex-1 md:flex items-center  gap-2">
               <label htmlFor="" className="text-nowrap">
                 Search here:
               </label>
@@ -82,7 +82,7 @@ const Productpage = () => {
               />
             </div>
 
-            <div className="mb-3 flex-1 flex items-center  gap-2">
+            <div className="mb-3 flex-1 md:flex items-center  gap-2">
               <label htmlFor="" className="text-nowrap">
                 Search by Category:
               </label>

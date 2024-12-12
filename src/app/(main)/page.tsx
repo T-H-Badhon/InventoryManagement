@@ -20,7 +20,7 @@ function App() {
   });
 
   return (
-    <div className="pt-72 ml-72">
+    <div className="md:pt-20 pt-20 ml-10 md:ml-16">
       <div className="p-5">
         <h3>Categories</h3>
         <div>
