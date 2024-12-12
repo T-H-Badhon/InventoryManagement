@@ -17,7 +17,7 @@ function BarcodeScanner() {
     const fetchData = async (barcode: string) => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/v1/scanner/" + barcode
+          "https://sport-server-main.vercel.app/api/v1/scanner/" + barcode
         ); // Replace with your API endpoint
         if (!response.ok) {
           throw new Error("Failed to fetch data");
