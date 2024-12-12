@@ -30,7 +30,7 @@ const Categorypage = () => {
   };
 
   return (
-    <div className="pt-20 pl-[40px] shadow-md">
+    <div className="pt-20  shadow-md">
       <div className=" flex items-center justify-center ">
         <div className="w-full  bg-white p-6 rounded-lg ">
           <h1 className="text-2xl font-bold mb-4 text-gray-800 text-center">

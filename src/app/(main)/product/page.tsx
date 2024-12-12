@@ -58,11 +58,11 @@ const Productpage = () => {
 
   return (
     <>
-      <div className="pt-20 pl-[40px] shadow-md">
+      <div className="pt-20  shadow-md">
         <div className="p-5">
           <h3 className="text-lg font-semibold mb-3">All Products</h3>
 
-          <div className="md:flex items-center gap-4">
+          <div className="md:flex items-center gap-4 mb-5">
             <div className="mb-3 flex-1 md:flex items-center  gap-2">
               <label htmlFor="" className="text-nowrap">
                 Search here:
@@ -109,7 +109,7 @@ const Productpage = () => {
             </div>
           </div>
 
-          <div>
+          <div >
             <table>
               <tbody>
                 <tr>
@@ -135,7 +135,7 @@ const Productpage = () => {
                               setSeletedProduct(product?.id);
                               setOpen(true);
                             }}
-                            className="py-2 px-3 bg-blue-600/30 rounded-lg mr-2"
+                            className="py-2 px-3 bg-blue-600/30 rounded-lg  mb-1 sm:mb-0 sm:mr-2"
                           >
                             <AiFillEdit className="text-blue-700 w-5 h-5" />
                           </button>
@@ -152,7 +152,7 @@ const Productpage = () => {
                                 }
                               });
                             }}
-                            className="py-2 px-3 bg-red-600/30 rounded-lg"
+                            className="py-2 px-3 bg-red-600/30 rounded-lg mb-1 sm:mb-0"
                           >
                             <FaTrashCan className=" text-red-600 w-5 h-5" />
                           </button>

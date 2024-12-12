@@ -1,20 +1,21 @@
 "use client";
 
-// import loginAction from "@/serverAction/Login";
-// import Link from "next/link";
-// import { useForm } from "react-hook-form";
+import loginAction from "@/serverAction/Login";
+import { useForm } from "react-hook-form";
 
 export default function LoginPage() {
-//   const { register, handleSubmit, reset } = useForm({
-//     defaultValues: {
-//       email: "",
-//       password: "",
-//     },
-//   });
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-//   const onsubmit = async (data: any) => {
-//     loginAction(data);
-//   };
+  const onsubmit = async (data: any) => {
+    console.log(data)
+    loginAction(data);
+
+  };
 
   return (
     <div className="min-h-screen flex pt-20 justify-center bg-white w-screen z-[9999] fixed top-0">
@@ -26,7 +27,7 @@ export default function LoginPage() {
         </div>
 
         <form
-        //   onSubmit={handleSubmit(onsubmit)}
+          onSubmit={handleSubmit(onsubmit)}
           className="mt-8 space-y-6"
           action="#"
           method="POST"
@@ -41,7 +42,7 @@ export default function LoginPage() {
                 type="email"
                 autoComplete="email"
                 required
-                // {...register("email")}
+                {...register("email")}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
@@ -56,7 +57,7 @@ export default function LoginPage() {
                 type="password"
                 autoComplete="current-password"
                 required
-                // {...register("password")}
+                {...register("password")}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />

@@ -1,4 +1,5 @@
 "use client";
+import logOut from "@/serverAction/Logout";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -29,18 +30,18 @@ const Header = () => {
             {" "}
             <p>Scan</p>
           </Link>
-          <Link
+          <button
             className="py-3 px-5 bg-blue-950 rounded-lg text-white font-bold  mr-2 md:mr-5"
-            href={"/logout"}
+            onClick={async () => await logOut()}
           >
             {" "}
             <p>Log out</p>
-          </Link>
+          </button>
         </div>
       </div>
-      <div className="fixed top-0 pt-[80px] h-screen w-[80px] md:w-[200px] bg-red-500 text-white font-bold">
+      <div className="fixed top-0 pt-[80px] h-screen w-[45px] md:w-[200px] bg-red-500 text-white font-bold">
         <Link
-          className={`py-3 px-5 md:px-8 w-full text-center flex gap-2 items-center  ${
+          className={`py-3 px-3 md:px-8 w-full text-center flex gap-2 items-center  ${
             path == "/" ? " bg-blue-950" : ""
           }`}
           href={"/"}
@@ -52,7 +53,7 @@ const Header = () => {
         </Link>
 
         <Link
-          className={`py-3 px-5 md:px-8 w-full text-center flex gap-2 items-center  ${
+          className={`py-3 px-3 md:px-8 w-full text-center flex gap-2 items-center  ${
             path == "/scan" ? " bg-blue-950" : ""
           }`}
           href={"/scan"}
@@ -65,7 +66,7 @@ const Header = () => {
         </Link>
 
         <Link
-          className={`py-3 px-5 md:px-8 w-full text-center flex gap-2 items-center  ${
+          className={`py-3 px-3 md:px-8 w-full text-center flex gap-2 items-center  ${
             path == "/category" ? " bg-blue-950" : ""
           }`}
           href={"/category"}
@@ -77,7 +78,7 @@ const Header = () => {
         </Link>
 
         <Link
-          className={`py-3 px-5 md:px-8 w-full text-center flex gap-2 items-center  ${
+          className={`py-3 px-3 md:px-8 w-full text-center flex gap-2 items-center  ${
             path == "/product" ? " bg-blue-950" : ""
           }`}
           href={"/product"}
