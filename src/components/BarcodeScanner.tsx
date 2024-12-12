@@ -41,7 +41,7 @@ function BarcodeScanner() {
           <div className="w-[290px] sm:w-[500px] md:w-[500px] h-[230px] sm:h-[400px] overflow-hidden mx-auto">
             <BarcodeScannerComponent
               onUpdate={(err, result) => {
-                if (result)
+                if (result && /^\d+$/.test( result.getText()))
                   setData(
                     result.getText ? result.getText() : "No readable data"
                   );
